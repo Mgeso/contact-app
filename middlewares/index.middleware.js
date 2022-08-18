@@ -6,6 +6,8 @@ import cors from 'cors';
 import database from '../config/db.config.js';
 import router from '../routes/index.routes.js';
 
+import error from './error.middleware.js';
+
 const middleware = (app) => {
   app.use(express.json());
   app.use(morgan('dev'));
@@ -14,6 +16,8 @@ const middleware = (app) => {
 
   database();
   app.use(router);
+
+  app.use(error)
 };
 
 export default middleware;

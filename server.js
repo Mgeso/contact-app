@@ -1,9 +1,15 @@
+/* eslint-disable import/first */
 /* eslint-disable import/extensions */
+import 'express-async-errors';
 import express from 'express';
 import dotenv from 'dotenv';
-import middleware from './middlewares/index.middleware.js';
+import pino from 'pino'
 
 dotenv.config();
+
+import middleware from './middlewares/index.middleware.js';
+
+const logger = pino();
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -11,5 +17,5 @@ middleware(app);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log('Server is listening on port', port);
+  logger.info('Server is listening on port', port);
 });
