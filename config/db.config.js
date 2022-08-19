@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import pino from 'pino'
+import pino from 'pino';
 
 import mongoose from 'mongoose';
 

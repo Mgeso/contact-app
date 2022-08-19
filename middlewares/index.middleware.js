@@ -17,7 +17,7 @@ const middleware = (app) => {
   database();
   app.use(router);
 
-  app.use(error)
+  app.use(error);
 };
 
 export default middleware;

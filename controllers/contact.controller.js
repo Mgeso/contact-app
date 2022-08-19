@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable class-methods-use-this */
 import contactServices from '../services/contact.services.js';
@@ -9,11 +10,18 @@ class ContactController {
       firstname: req.body.firstname,
       othername: req.body.othername,
       phone_number: req.body.phone_number,
-      message: req.body.message,
+      message: req.body.message
     };
     const create = await contactServices.create(data);
     console.log(create);
     res.status(201).send({ status: true, message: 'contact saved successfully' });
   }
-}
+   {
+    const fetch = await contactService.fetchUsers();
+     {
+      console.log(fetch);
+      return res.status(200).send({ status: true, body: { ...contacts} });
+   }
+ }
+} 
 export default new ContactController();

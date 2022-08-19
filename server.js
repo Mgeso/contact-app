@@ -3,7 +3,7 @@
 import 'express-async-errors';
 import express from 'express';
 import dotenv from 'dotenv';
-import pino from 'pino'
+import pino from 'pino';
 
 dotenv.config();
 
