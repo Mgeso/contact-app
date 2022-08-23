@@ -1,3 +1,5 @@
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable class-methods-use-this */
@@ -16,12 +18,13 @@ class ContactController {
     console.log(create);
     res.status(201).send({ status: true, message: 'contact saved successfully' });
   }
-   {
-    const fetch = await contactService.fetchUsers();
-     {
+
+  async fetchcontacts(req, res) {
+    const fetch = await contactServices.fetchcontacts();
+    {
       console.log(fetch);
-      return res.status(200).send({ status: true, body: { ...contacts} });
-   }
- }
-} 
+      return res.status(200).send({ status: true, body: { ...contacts } });
+    }
+  }
+}
 export default new ContactController();
