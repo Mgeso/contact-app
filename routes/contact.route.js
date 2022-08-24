@@ -13,5 +13,19 @@ contactRouter.post(
   ],
   contactController.createNewContact
 );
+contactRouter.put(
+  '/:id',
+  [
+    validator(contactSchema.UpdateContactSchema)
+  ],
 
+  contactController.updateContacts
+);
+contactRouter.delete(
+  '/:id',
+  // [
+  //   validator(contactSchema.deleteSchema)
+  // ],
+  contactController.deleteContacts
+);
 export default contactRouter;

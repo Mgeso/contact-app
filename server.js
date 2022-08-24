@@ -9,11 +9,13 @@ dotenv.config();
 
 import middleware from './middlewares/index.middleware.js';
 
+const app = express();
+
+middleware(app);
+
 const logger = pino();
 
 const port = process.env.PORT || 3000;
-const app = express();
-middleware(app);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

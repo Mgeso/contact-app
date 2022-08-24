@@ -8,6 +8,9 @@ const CreateContactSchema = Joi.object({
   message: Joi.string().min(1)
 });
 
+const UpdateContactSchema = Joi.object({});
+
 export default {
-  CreateContactSchema
+  CreateContactSchema,
+  UpdateContactSchema
 };

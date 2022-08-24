@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/extensions */
 import contactModel from '../models/contactSupport.js';
@@ -13,8 +14,18 @@ class ContactService {
     return newContact;
   }
 
-  async fetchcontacts() {
+  async fetchContacts() {
     const newContact = contactModel.find({});
+    return newContact;
+  }
+
+  async updateContacts(id, data) {
+    const newContact = contactModel.findByIdAndUpdate({ _id: id }, data);
+    return newContact;
+  }
+
+  async deleteContacts(id, data) {
+    const newContact = contactModel.findByIdAndDelete({ _id: id }, data);
     return newContact;
   }
 }
