@@ -12,7 +12,7 @@ class ContactController {
       surname: req.body.surname,
       firstname: req.body.firstname,
       othername: req.body.othername,
-      phone_number: req.body.phone_number,
+      phone_number: [req.body.phone_number],
       message: req.body.message
     };
     const create = await contactServices.create(data);
@@ -29,16 +29,16 @@ class ContactController {
   }
 
   async updateContacts(req, res) {
-    const update = await contactServices.updatecontacts(req.params.id, req.body);
-    {
-      console.log(update);
-      return res.status(201).send({ message: true, body: 'contact updated successfully' });
-    }
+    const update = await contactServices.updateContacts(req.params.id, req.body);
+    res.status(201).send({
+      success: true,
+      body: 'contact updated successfully'
+    });
   }
 
   async deleteContacts(req, res) {
-    const deleted = await contactServices.deletecontact(req.params.id, req.body);
-    contact.info(deleted);
+    const deleted = await contactServices.deleteContacts(req.params.id);
+    // contact.info(deleted);
     return res.status(200).send({ message: true, body: 'contact deleted successfully' });
   }
 }

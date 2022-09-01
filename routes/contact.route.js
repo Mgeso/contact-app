@@ -23,9 +23,9 @@ contactRouter.put(
 );
 contactRouter.delete(
   '/:id',
-  // [
-  //   validator(contactSchema.deleteSchema)
-  // ],
+  [
+    validator(contactSchema.DeleteContactSchema)
+  ],
   contactController.deleteContacts
 );
 export default contactRouter;
