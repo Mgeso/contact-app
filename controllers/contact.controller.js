@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable no-undef */
@@ -13,11 +14,11 @@ class ContactController {
       firstname: req.body.firstname,
       othername: req.body.othername,
       phone_number: [req.body.phone_number],
-      message: req.body.message
+      user: req.body.userId // remember to update thus guý after authentication
     };
-    const create = await contactServices.create(data);
-    console.log(create);
-    res.status(201).send({ status: true, message: 'contact saved successfully' });
+    const contact = await contactServices.create(data);
+
+    res.status(201).send({ status: true, message: 'contact saved successfully', data: contact });
   }
 
   async fetchContacts(req, res) {
@@ -40,6 +41,13 @@ class ContactController {
     const deleted = await contactServices.deleteContacts(req.params.id);
     // contact.info(deleted);
     return res.status(200).send({ message: true, body: 'contact deleted successfully' });
+  }
+
+  async getAllContacts(req, res) {
+    const allContact = await contactService.getContacts(req.params.userId);
+    if (_.isEmpty(getAllContact)) {
+      return res.status(200).send({ message: true, count: allContact.length, body: 'no contact found' });
+    }
   }
 }
 export default new ContactController();

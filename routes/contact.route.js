@@ -3,8 +3,11 @@ import express from 'express';
 import contactController from '../controllers/contact.controller.js';
 import validator from '../middlewares/validator.middleware.js';
 import contactSchema from '../schema/contact.schema.js';
+import authentication from '../middlewares/auth.middleware.js';
 
 const contactRouter = express.Router();
+
+contactRouter.get('/:userId', authentication, contactController.getAllContacts);
 
 contactRouter.post(
   '/',
