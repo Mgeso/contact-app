@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-lone-blocks */
@@ -14,7 +15,7 @@ class ContactController {
       firstname: req.body.firstname,
       othername: req.body.othername,
       phone_number: [req.body.phone_number],
-      user: req.body.userId // remember to update thus guý after authentication
+      user: req.user._id // remember to update thus guý after authentication
     };
     const contact = await contactServices.create(data);
 
@@ -44,7 +45,7 @@ class ContactController {
   }
 
   async getAllContacts(req, res) {
-    const allContact = await contactService.getContacts(req.params.userId);
+    const allContact = await contactServices.getContacts(req.params.userId);
     if (_.isEmpty(getAllContact)) {
       return res.status(200).send({ message: true, count: allContact.length, body: 'no contact found' });
     }

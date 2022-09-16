@@ -8,8 +8,8 @@ class UserService {
     return newUser;
   }
 
-  async loginUser(data) {
-    const user = await User.findOne({ email: data.email });
+  async loginUser({ email }) {
+    const user = await User.findOne({ email });
     return user;
   }
 
@@ -19,7 +19,7 @@ class UserService {
   }
 
   async findByEmail(email) {
-    const user = User.findOne({ email });
+    const user = await User.findOne({ email });
 
     return user;
   }

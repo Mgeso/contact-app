@@ -12,14 +12,16 @@ contactRouter.get('/:userId', authentication, contactController.getAllContacts);
 contactRouter.post(
   '/',
   [
-    validator(contactSchema.CreateContactSchema)
+    validator(contactSchema.CreateContactSchema),
+    authentication
   ],
   contactController.createNewContact
 );
 contactRouter.put(
   '/:id',
   [
-    validator(contactSchema.UpdateContactSchema)
+    validator(contactSchema.UpdateContactSchema),
+    authentication
   ],
 
   contactController.updateContacts
