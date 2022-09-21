@@ -17,7 +17,7 @@ the contact app is explicitly split into different folders each to serve or perf
 
 -- config | |--contains the config code for connecting the app to mongodb using mongoose
 
--- models | |-- it holds the mongoose schema that perdoms various operations on db
+-- models | |-- it holds the mongoose schema that perfoms various operations on db
 
 -- routes | |--index.routes - holds the index to access all operations that can be done in the contact app |--contact.routes - holds the different routes for the contact app
 
