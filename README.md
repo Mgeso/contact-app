@@ -92,6 +92,6 @@ User resource
 */
 ````
 
-Other resources are being created according to the requirements at the moment 
+Other resources are being created according to the requirements at the moment.
 
 # Completed
