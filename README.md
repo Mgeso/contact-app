@@ -4,8 +4,8 @@ This is a contact app.
 
 TO START THE APP
 
-type "npm i" to install dependencies
-type "npm run dev" on your terminal
+<!-- type "npm i" to install dependencies -->
+<!-- type "npm run dev" on your terminal -->
 EXISTING ROUTES
 
 contact/all contact (fetched all the contacts in the db)
