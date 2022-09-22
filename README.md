@@ -1,29 +1,23 @@
 # contact-app
 This is a contact app.
 
+This is an app that help user store there contacts as phone numbers.
 
-TO START THE APP
+It allows them to login using there email and password.
 
-<!-- type "npm i" to install dependencies -->
-<!-- type "npm run dev" on your terminal -->
-EXISTING ROUTES
+# Setup
 
-contact/all contact (fetched all the contacts in the db)
-contact/new contact (creates a new contact in db)
-contact/update contact (updates a contact in the db)
-contact/delete contact (delete a particular contact by its id)
-the contact app is explicitly split into different folders each to serve or perform a particular function or use case here we have
+Terminal/CLI command: npm install to install dependencies
+Terminal/CLI command: cp .env.example .env to create .env file based on the .env.example file. setup the created .env file
+Start the app in dev mode: npm run dev
 
---controllers | |-- they take in data and perform various functions like handling contact creation, contact update,contact deletion, get all contacts and interact with services which in turn interact with mongo db
+# Routes
 
--- services | |-- they receive data directly from controllers and interact with db to return the response of queries made to it
+User resource
 
--- config | |--contains the config code for connecting the app to mongodb using mongoose
-
--- models | |-- it holds the mongoose schema that perfoms various operations on db
-
--- routes | |--index.routes - holds the index to access all operations that can be done in the contact app |--contact.routes - holds the different routes for the contact app
-
--- schema | |--holds the validator schema and functions used for validating requests made to the contact app
-
--- middlewares | | -- holds the various middlwares used in the contact app like error handling,connecting the app to db
+/user create a user, method: POST
+/users list all users, method: GET
+/users/:id get a single user, method: GET
+/users/:id update a user method: PUT/PATCH
+/users/id delete users method DELETE
+/users/login login a user method POST
