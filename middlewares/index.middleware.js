@@ -14,6 +14,12 @@ const middleware = (app) => {
   app.use(cors());
   app.use(express.urlencoded({ extended: false }));
 
+  app.use('*', (req, res) => {
+    res.status(200).send({
+      success: true, message: 'server is up and running'
+    });
+  });
+
   database();
   app.use(router);
 
